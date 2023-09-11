@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/user-service")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -24,6 +24,11 @@ public class UserController {
     private final Greeting greeting;
     private final UserService userService;
     private final ModelMapper mapper;
+
+    @GetMapping("/")
+    public String hi() {
+        return "hi";
+    }
 
     @GetMapping("/health_check")
     public String status() {
