@@ -5,6 +5,9 @@ spring:
   application:
     name: config-server
 
+#  profiles:
+#    active: native
+
   rabbitmq:
     host: localhost
     port: 5672
@@ -17,7 +20,6 @@ spring:
     config:
       server:
         git:
-          #          uri: file:///Users/devseorex/desktop/work/git-local-repo
           uri: git@github.com:ch4570/spring-cloud-config.git
           default-label: master
           ignore-local-ssh-settings: true

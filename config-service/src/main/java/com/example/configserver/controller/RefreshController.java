@@ -18,8 +18,6 @@ public class RefreshController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        System.out.println("요청 옴");
-
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("path", "*");
 
