@@ -3,8 +3,10 @@ package com.example.userservice.service;
 import com.example.userservice.client.OrderServiceClient;
 import com.example.userservice.domain.UserEntity;
 import com.example.userservice.dto.UserDto;
+import com.example.userservice.error.FeignErrorDecoder;
 import com.example.userservice.repository.UserRepository;
 import com.example.userservice.vo.ResponseOrder;
+import com.example.userservice.vo.ResponseUser;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -56,15 +58,8 @@ public class UserServiceImpl implements UserService {
 //
 //        List<ResponseOrder> orders = orderListResponse.getBody();
 
-        /* Using as FeignClients */
-        /* Feign Exception Handling */
-        List<ResponseOrder> orders = null;
-
-        try {
-            orders = orderServiceClient.getOrder(userId);
-        } catch (FeignException ex) {
-            log.error(ex.getMessage());
-        }
+        log.info("userId = {}", userId);
+        List<ResponseOrder> orders = orderServiceClient.getOrder(userId);
 
         userDto.setOrders(orders);
 
